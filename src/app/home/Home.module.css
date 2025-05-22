@@ -43,7 +43,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem;
+  padding: 1.5rem 3rem;
   height: 100%;
   width: 50%;
   gap: 4rem;
@@ -77,4 +77,8 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+}
+
+.buttonLink {
+  text-decoration: none;
 }
