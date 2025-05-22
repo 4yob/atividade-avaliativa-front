@@ -12,17 +12,19 @@
 .musicList {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     gap: 2rem;
+    width: 100%;
 }
 
 .card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     width: 225px;
-    padding: 1rem;
     gap: 1rem;
     background-color: #fff;
     border-radius: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+

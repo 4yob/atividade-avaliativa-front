@@ -104,25 +104,27 @@ export default function Musics() {
                     {paginatedMusics().map((music) => (
                         <Card
                             key={music.id}
-                            title={music.name}
                             hoverable
                             onClick={() => openModal(music)}
                             className={styles.card}
                             cover={
                                 <Image
+                                    className={styles.image}
                                     src={music.photo ? music.photo : "/img/220.svg"}
-                                    alt="Play"
-                                    width={20}
-                                    height={20}
+                                    alt={music.name}
+                                    width={100}
+                                    height={100}
                                 />
                             }
                         >
-                            <p>Artista: {music.singer}</p>
-                            <p>Duração: {music.duration}</p>
+                            <p>{music.name}</p>
+                            <p>{music.duration}</p>
                         </Card>
                     ))}
                 </div>
             )}
+
+            <ToastContainer position="top-right" autoClose={5000} />
 
         </div>
     );
