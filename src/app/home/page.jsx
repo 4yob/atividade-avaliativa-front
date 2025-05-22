@@ -23,7 +23,7 @@ export default function Home() {
                 <h1 className={styles.title2}>Atividade Avaliativa FRONT-END</h1>
                 <p className={styles.description}>Esta atividade se baseia na atividade avaliativa de Back-End para o desenvolvimento de integração de interface gráfica com uma API. Desta forma, a atividade abrangerá uma listagem de <b>músicas e cantores</b> ordenados por cards informativos utilizando as linguagens <span className={styles.span1}>Next.JS</span> e <span className={styles.span2}>JavaScript</span>.</p>
                 <div className={styles.bottom}>
-                    <Link className={styles.buttonLink} href="/singers">
+                    <Link className={styles.buttonLink} href="/musics" prefetch>
                         <Button text="Avançar" />
                     </Link>
                 </div>
