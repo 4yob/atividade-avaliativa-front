@@ -25,24 +25,20 @@ export default function Musics() {
         loading: false,
     });
 
-    const [singer, setSinger] = useState({
-        name: null,
-        loading: false,
-    });
-
     useEffect(() => {
         const fetchMusics = async () => {
             try {
-                const response = await axios.get(
+                const { data: musics } = await axios.get(
                     `${process.env.NEXT_PUBLIC_API_URL}/musics`,
                     { headers: Headers }
                 );
                 setData({
-                    musics: response.data,
+                    musics,
                     loading: false,
                     current: 1,
                     pageSize: 5,
                 });
+                toast.success("Músicas carregadas com sucesso");
             } catch (error) {
                 console.error("Error fetching musics:", error);
                 toast.error("Erro ao carregar as músicas");
@@ -55,21 +51,23 @@ export default function Musics() {
     const openModal = async (music) => {
     setModal({
         visible: true,
-        name: music.name,
+        music,
         duration: music.duration,
-        singer: music.singer,
+        singer: null,
         loading: false,
     });
 
     try {
         const { data: singers } = await axios.get(
-            `${process.env.NEXT_PUBLIC_API_URL}/singers/${music.singer}`,
+            `${process.env.NEXT_PUBLIC_API_URL}/singers/${music.singer_id}`,
             { headers: Headers }
         );
-        setSinger({
-            name: singers.name,
+        setModal((m) => ({
+            ...m,
+            singers,
             loading: false,
-        });
+        }));
+        toast.success("Cantor carregado com sucesso");
     } catch (error) {
         console.error("Error fetching singer:", error);
         toast.error("Erro ao carregar o cantor");
@@ -110,7 +108,7 @@ export default function Musics() {
                             cover={
                                 <Image
                                     className={styles.image}
-                                    src={music.photo ? music.photo : "/img/220.svg"}
+                                    src={"/220.svg"}
                                     alt={music.name}
                                     width={100}
                                     height={100}

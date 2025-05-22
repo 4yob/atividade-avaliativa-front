@@ -8,8 +8,8 @@ export default function Home() {
         <div className={styles.container}>
             <div className={styles.article}>
                 <Image
-                    src="/img/image.png"
-                    alt="Logo"
+                    src="/img/profile-img.png"
+                    alt="Profile Image"
                     width={250}
                     height={250}
                     className={styles.photo}
